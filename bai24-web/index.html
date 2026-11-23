@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bài tập 24 - Đèn Kéo Quân & Tổng Hợp</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f7fb;
+      color: #1f2937;
+    }
+    header {
+      background: #1e3a8a;
+      color: #fff;
+      padding: 16px 24px;
+    }
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.16);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .container {
+      max-width: 960px;
+      margin: 24px auto;
+      padding: 0 16px 40px;
+    }
+    .info-box {
+      background: #fff;
+      padding: 16px 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      margin-bottom: 24px;
+    }
+    .scene-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fff;
+      padding: 32px 16px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      margin-bottom: 28px;
+    }
+    .scene {
+      width: 240px;
+      height: 220px;
+      perspective: 900px;
+      margin: 20px 0;
+    }
+    .lantern {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+    }
+    .face {
+      position: absolute;
+      width: 190px;
+      height: 170px;
+      left: 25px;
+      top: 25px;
+      border: 3px solid #dc2626;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .face img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .status {
+      margin-top: 12px;
+      font-weight: bold;
+      color: #1e3a8a;
+    }
+
+    /* Khu vực hình kết quả các bài 17 - 22 */
+    .results-section {
+      background: #fff;
+      padding: 24px 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+    .results-section h2 {
+      margin: 0 0 18px;
+      font-size: 20px;
+      color: #1e3a8a;
+    }
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .result-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 12px;
+      background: #f9fafb;
+    }
+    .result-card h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: #111827;
+    }
+    .result-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      background: #e5e7eb;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .result-card a {
+font-size: 13px;
+      color: #1e3a8a;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .result-card a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bài tập 24 - Sinh viên: Nguyễn Thị Huệ | MSSV: 241A010760</h1>
+    <nav>
+      <a href="#den-keo-quan">Đèn kéo quân</a>
+      <a href="#bai17">Bài 17</a>
+      <a href="#bai18">Bài 18</a>
+      <a href="#bai19">Bài 19</a>
+      <a href="#bai20">Bài 20</a>
+      <a href="#bai21">Bài 21</a>
+      <a href="#bai22">Bài 22</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="info-box">
+      <p><strong>Họ tên:</strong> Nguyễn Thị Huệ — <strong>Mã SV:</strong> 241A010760</p>
+      <p>Rê chuột vào bất kỳ mặt nào của đèn kéo quân để dừng quay, đưa chuột ra ngoài để đèn quay tiếp.</p>
+    </div>
+
+    <div id="den-keo-quan" class="scene-wrapper">
+      <h2>Đèn Kéo Quân (6 Mặt)</h2>
+      <div class="scene">
+        <div class="lantern" id="lantern">
+          <div class="face"><img src="C:\Users\Admin\Desktop\bai24-web\images\1795418213610_203728264167790629_3063850922805880690_3a57a9ba399f5501315c50ed4cdbf480.jpg" alt="Mặt 1"></div>
+          <div class="face"><img src="C:\Users\Admin\Desktop\bai24-web\images\1795418213698_203728264167790629_3063850922805880690_caf24cb136c2bcffd763a66cc36c2da0.jpg" alt="Mặt 2"></div>
+          <div class="face"><img src="C:\Users\Admin\Desktop\bai24-web\images\1795418213780_203728264167790629_3063850922805880690_1b773fdda3ebfff4f96aa4d7c2397f20.jpg" alt="Mặt 3"></div>
+          <div class="face"><img src="C:\Users\Admin\Desktop\bai24-web\images\1795418213859_203728264167790629_3063850922805880690_6ede6f934128a117df3ebd3b3027a5f8.jpg" alt="Mặt 4"></div>
+          <div class="face"><img src="C:\Users\Admin\Desktop\bai24-web\images\1795418213960_203728264167790629_3063850922805880690_e2d14aa8594f6a29754a043fd72ab1da.jpg" alt="Mặt 5"></div>
+          <div class="face"><img src="C:\Users\Admin\Desktop\bai24-web\images\1795418214063_203728264167790629_3063850922805880690_19f3b8c8d81239322c09fa97aae144f1.jpg" alt="Mặt 6"></div>
+        </div>
+      </div>
+      <div class="status" id="statusText">Trạng thái: Đang quay</div>
+    </div>
+
+    <section class="results-section">
+      <h2>Hình Kết Quả Các Bài 17 – 22</h2>
+      <div class="results-grid">
+        <div id="bai17" class="result-card">
+          <h3>Bài 17</h3>
+          <img src="C:\Users\Admin\Desktop\bai24-web\images\Screenshot (239).png" alt="Kết quả Bài 17">
+          <a href="C:\Users\Admin\Desktop\bai24-web\images\Screenshot (239).png" target="_blank">Mở ảnh Bài 17</a>
+        </div>
+
+        <div id="bai18" class="result-card">
+          <h3>Bài 18</h3>
+          <img src="C:\Users\Admin\Desktop\bai24-web\images\Screenshot (227).png" alt="Kết quả Bài 18">
+          <a href="C:\Users\Admin\Desktop\bai24-web\images\Screenshot (227).png" target="_blank">Mở ảnh Bài 18</a>
+        </div>
+
+        <div id="bai19" class="result-card">
+          <h3>Bài 19</h3>
+          <img src="C:\Users\Admin\Desktop\bai24-web\images\Screenshot (228).png" alt="Kết quả Bài 19">
+          <a href="C:\Users\Admin\Desktop\bai24-web\images\Screenshot (228).png" target="_blank">Mở ảnh Bài 19</a>
+        </div>
+
+        <div id="bai20" class="result-card">
+          <div id="bai20" class="result-card">
+  <h3>Bài 20</h3>
+  <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 8px;">
+    <img src="C:\Users\Admin\Desktop\bai24-web\images\1795419848244_203728264167790629_3063850922805880690_9504723738a6b95fbd042afb13e392f1.jpg" alt="Kết quả Bài 20 - Ảnh 1" style="margin-bottom: 0;">
+    <img src="C:\Users\Admin\Desktop\bai24-web\images\1795419848331_203728264167790629_3063850922805880690_b6a374d14cce351d33cb6c54c75e524a.jpg" alt="Kết quả Bài 20 - Ảnh 2" style="margin-bottom: 0;">
+  </div>
+  <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+    <a href="C:\Users\Admin\Desktop\bai24-web\images\1795419848244_203728264167790629_3063850922805880690_9504723738a6b95fbd042afb13e392f1.jpg" target="_blank">Mở ảnh 1</a>
+    <a href="C:\Users\Admin\Desktop\bai24-web\images\1795419848331_203728264167790629_3063850922805880690_b6a374d14cce351d33cb6c54c75e524a.jpg" target="_blank">Mở ảnh 2</a>
+  </div>
+</div>
+
+        <div id="bai21" class="result-card">
+          <h3>Bài 21</h3>
+          <img src="C:\Users\Admin\Desktop\bai24-web\images\1795421282423_203728264167790629_3063850922805880690_a28cbc5a9f41b6ed2b744f8c294734f6.jpg" alt="Kết quả Bài 21">
+          <a href="C:\Users\Admin\Desktop\bai24-web\images\1795421282423_203728264167790629_3063850922805880690_a28cbc5a9f41b6ed2b744f8c294734f6.jpg" target="_blank">Mở ảnh Bài 21</a>
+        </div>
+
+          <div id="bai22" class="result-card">
+  <h3>Bài 22</h3>
+  <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 8px;">
+    <img src="C:\Users\Admin\Desktop\bai24-web\images\Screenshot (236).png"alt="Kết quả Bài 22 - Ảnh 1" style="margin-bottom: 0;">
+    <img src="C:\Users\Admin\Desktop\bai24-web\images\Screenshot (237).png"alt="Kết quả Bài 22 - Ảnh 2" style="margin-bottom: 0;">
+  </div>
+  <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+    <a href="C:\Users\Admin\Desktop\bai24-web\images\Screenshot (236).png" target="_blank">Mở ảnh 1</a>
+    <a href"C:\Users\Admin\Desktop\bai24-web\images\Screenshot (237).png" target="_blank">Mở ảnh 2</a>
+  </div>
+</div>
+
+  <script>
+    const faces = document.querySelectorAll('#lantern .face');
+    const lantern = document.getElementById('lantern');
+    const statusText = document.getElementById('statusText');
+
+    // Xếp 6 mặt thành hình lăng trụ đều 6 cạnh (60 độ mỗi mặt)
+    const angleStep = 360 / faces.length;
+    const radius = 185;
+    faces.forEach((face, i) => {
+      face.style.transform = `rotateY(${i * angleStep}deg) translateZ(${radius}px)`;
+    });
+
+    let currentAngle = 0;
+    let isSpinning = true;
+    const speed = 0.6; // độ mỗi khung hình
+
+    function rotateLantern() {
+      if (isSpinning) {
+        currentAngle = (currentAngle + speed) % 360;
+        lantern.style.transform = `rotateY(${currentAngle}deg)`;
+      }
+      requestAnimationFrame(rotateLantern);
+    }
+
+    faces.forEach((face, idx) => {
+      face.addEventListener('mouseenter', () => {
+        isSpinning = false;
+        statusText.textContent = `Trạng thái: Đang dừng tại mặt ${idx + 1} (rê chuột ra để quay tiếp)`;
+      });
+      face.addEventListener('mouseleave', () => {
+        isSpinning = true;
+        statusText.textContent = 'Trạng thái: Đang quay';
+      });
+    });
+
+    rotateLantern();
+  </script>
+</body>
+</html>
